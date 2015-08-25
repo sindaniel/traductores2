@@ -1,0 +1,45 @@
+<div class="col-lg-12">
+  <section class="panel">
+    <header class="panel-heading">
+      Agregar Teléfono
+    </header>
+    <div class="panel-body">
+
+
+
+
+
+          <%= form_for @phone, :url => language_phones_path, :method=>'post' do |f|  %>
+
+          <div class="form-group">
+            <%= f.label :name, 'Nombre', :class=>'col-lg2 col-sm-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_field :name, :class =>'form-control'  %>
+            </div>
+          </div>
+
+          <br/> <br/><br/>
+
+          <div class="form-group">
+            <%= f.label :phone, 'Telefono', :class=>'col-lg2 col-sm-2 control-label' %>
+            <div class="col-lg-10">
+              <%= f.text_field :phone, :class =>'form-control'  %>
+            </div>
+          </div>
+
+          <div class="form-group" >
+            <%= f.submit 'Guardar', :class=> 'btn btn-info ' %>
+            <%=  link_to 'Cancelar', language_phones_path, :class=>'btn btn-warning' %>
+          </div>
+
+
+      <% end %>
+
+
+
+
+
+
+    </div>
+  </section>
+</div>

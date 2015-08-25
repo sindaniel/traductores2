@@ -1,0 +1,50 @@
+
+<table class="display table table-bordered table-striped dataTable" id="example" aria-describedby="example_info">
+  <tr>
+
+    <td>
+      <h3>Codigo:</h3>
+      <h2><%= @code.code %></h2>
+    </td>
+  </tr>
+</table>
+
+<table class="display table table-bordered table-striped dataTable" id="example" aria-describedby="example_info">
+  <thead>
+
+
+
+  <th rowspan="1" colspan="1">Tiempo</th>
+  <th>Idioma</th>
+  <th>Fecha de uso</th>
+
+  </thead>
+
+  <%  idioma =['', 'Español', 'Ingles', 'Frances', 'Portugues', 'Italiano', 'Italiano'] %>
+      <tbody role="alert" aria-live="polite" aria-relevant="all">
+    <% @minutes = 0 %>
+      <%  @code.registers.each do |code|  %>
+          <tr class="gradeX odd">
+            <td class=" ">
+
+              <%=  Time.at(code.time).utc.strftime("%M:%S") %>
+            </td>
+
+            <td class=" "><%= idioma[code.idioma] %></td>
+
+
+            <td class=" "><%= code.created_at %></td>
+          </tr>
+      <% @minutes = @minutes+ code.time.to_i %>
+      <% end %>
+      <tr>
+        <th>
+
+         <%=  Time.at(@minutes).utc.strftime("%M:%S") %> Minutos
+        </th>
+      </tr>
+
+
+
+      </tbody>
+</table>

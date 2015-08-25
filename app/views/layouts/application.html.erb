@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traductor</title>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'bootstrap.min',
+                             'bootstrap-reset',
+                             'font-awesome/css/font-awesome',
+                             'jquery-easy-pie-chart/jquery.easy-pie-chart',
+                             'style',
+                             'style-responsive',
+                             'data-turbolinks-track' => true %>
+                             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <%= yield :head %>
+  <% # javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<section id="container" >
+  <!--header start-->
+  <% if user_signed_in? %>
+  <%= render 'includes/header' %>
+  <!--header end-->
+  <!--sidebar start-->
+  <%= render 'includes/menu' %>
+  <!--sidebar end-->
+
+ <% else %>
+  <style>
+  #main-content {
+    margin-left: 0px;
+}
+</style>
+  <% end %>
+
+  <section id="main-content">
+    <section class="wrapper">
+<%= yield %>
+    </section>
+  </section>
+<% if user_signed_in? %>
+  <%= render 'includes/footer' %>
+   <% end %>
+
+
+  <%=  javascript_include_tag  'jquery.min.js',
+                              'bootstrap.min',
+                               'jquery.dcjqaccordion.2.7',
+                              'jquery.scrollTo.min',
+                              'jquery.nicescroll',
+                              'respond.min',
+                              'common-scripts'
+  %>
+  <%= yield :footer %>
+</section>
+</body>
+</html>

@@ -1,0 +1,1 @@
+var DraggablePortlet=function(){return{init:function(){jQuery().sortable&&($("#draggable_portlets").sortable({connectWith:".panel",items:".panel",opacity:.8,coneHelperSize:!0,placeholder:"sortable-box-placeholder round-all",forcePlaceholderSize:!0,tolerance:"pointer"}),$(".column").disableSelection())}}}();

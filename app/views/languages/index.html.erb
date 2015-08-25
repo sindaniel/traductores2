@@ -1,0 +1,85 @@
+<div class="row">
+
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        Codigos
+      </header>
+      <div class="panel-body">
+        <div class="adv-table">
+
+
+          <div id="example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+
+
+
+
+            <div class="row-fluid">
+              <div class="span6">
+              </div></div>
+            <table class="display table table-bordered table-striped dataTable" id="example" aria-describedby="example_info">
+              <thead>
+
+
+              <th rowspan="1" colspan="1">Idioma</th>
+              <th rowspan="1" colspan="1">Acciones</th>
+
+              </thead>
+
+              <tfoot>
+              <tr>
+
+                <th rowspan="1" colspan="1">Idioma</th>
+                <th rowspan="1" colspan="1">Acciones</th>
+
+
+
+              </tfoot>
+              <tbody role="alert" aria-live="polite" aria-relevant="all">
+
+              <%  @languages.each do |lang|  %>
+
+                  <tr class="gradeX odd">
+                    <td class=" "><%= lang.name %></td>
+                    <td>
+                      <%= link_to 'Telefonos', language_phones_path(lang.id), :class=>'btn btn-info' %>
+
+                    </td>
+
+
+                  </tr>
+              <% end %>
+
+
+
+              </tbody>
+            </table>
+            <div class="row-fluid">
+              <div class="span6">
+
+              </div>
+              <div class="span6"><div class="dataTables_paginate paging_bootstrap pagination">
+
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+
+
+<% content_for :head do %>
+
+
+    <%= stylesheet_link_tag    'advanced-datatable/media/css/demo_page',
+                               'advanced-datatable/media/css/demo_table',
+                               'data-tables/DT_bootstrap'
+    %>
+
+
+<% end %>
